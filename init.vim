@@ -1,6 +1,6 @@
 
-let g:user_emmet_leader_key=',' 	"mapeando la tecla lider por una coma, con esto se completa los tag con doble coma.
-let mapleader = ','
+let g:user_emmet_leader_key=' ' 	"mapeando la tecla lider por una coma, con esto se completa los tag con doble coma.
+let mapleader = ' '
 ":::instalacion de plugins:::
 call plug#begin('~/AppData/Local/nvim/plugged') 	"directorio donde se van a instalar los plugins
 
@@ -28,9 +28,16 @@ set sw=4 				"la indentación genera 4 espacios
 set nowrap				"el texto en una linea no baja a la siguiente, solo continua en la misma hasta el infinito.
 "set noswapfile				"para evitar el mensaje que sale al abrir algunos archivos sobre swap.
 set clipboard=unnamed			"para poder utilizar el portapapeles del sistema operativo 'esto permite poder copiar y pegar desde cualquier parte a nvim y viceversa.	
+set colorcolumn=80
 
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+"
+nnoremap <leader>l :bprevious<CR>
+nnoremap <leader>h :bnext<CR>
+
+nnoremap <leader>q :bd<CR>
+nnoremap <leader>w :wa<CR>
 
 "configuracion de emmet-vim
 
@@ -88,6 +95,7 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
 
 " Use <c-space> to trigger completion.
   inoremap <silent><expr> <c-space> coc#refresh()
