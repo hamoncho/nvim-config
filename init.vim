@@ -5,6 +5,8 @@ let mapleader = ' '
 call plug#begin('~/AppData/Local/nvim/plugged') 	"directorio donde se van a instalar los plugins
 
 "plugins
+Plug 'navarasu/onedark.nvim' 		"thema
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 	"Resaltado de sintaxis
 Plug 'Yggdroot/indentLine' 		"indentacion
 Plug 'vim-airline/vim-airline'		"diseño de la barra en la cual se muestran los modos, la linea, etc.
 Plug 'vim-airline/vim-airline-themes'	"temas para el vim-airline
@@ -16,8 +18,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}	"autocompletado inteligente
 call plug#end() 			"cerramos el llamado de los plugins
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 "CONFIGURACIONES BASICAS 
+"
+"
+set shiftwidth=4
+set tabstop=4
+set expandtab
 set number 				"muestra los numeros de cada linea en la parte izquierda 
 set relativenumber 			"la distribucion de los numeros en lineas de manera relativa
 set mouse=a 				"permite la interaccion con el mouse
