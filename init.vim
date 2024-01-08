@@ -14,6 +14,7 @@ Plug 'preservim/nerdtree'		"gestor de archivos en forma de arbol.
 Plug 'christoomey/vim-tmux-navigator'	"poder navegar entre archivos abiertos
 Plug 'jiangmiao/auto-pairs'		"autocompletado de llaves, corchetes, etc.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}	"autocompletado inteligente
+Plug 'ap/vim-css-color'     "ver los colores css.
 
 call plug#end() 			"cerramos el llamado de los plugins
 
@@ -110,8 +111,9 @@ function! CheckBackspace() abort
 endfunction
 
 " Use <c-space> to trigger completion
+" Mapeo en modo insert para cambiar Ctrl + Space por Ctrl + _ (Ctrl + Underscore)
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <c-\> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
@@ -148,8 +150,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
+"nmap <leader>f  <Plug>(coc-format-selected)
 xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <silent> <S-A-F> :call CocAction('format')<CR>
 
 augroup mygroup
   autocmd!
